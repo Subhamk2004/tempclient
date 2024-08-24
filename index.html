@@ -4,31 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client2</title>
+    <link rel="stylesheet" href='index.css'>
+    <title>Client</title>
 </head>
 
-<body style="background-color: rgb(16, 26, 6); color:white">
-    <p >Enter your userId: 
-        <input id="sender" type="text">
-    </p>
-    <p>Enter the recieverId: 
-        <input  id="reciever" type="text" >
-    </p>
-    <button onclick="userDetails()" id="getUser">
-        Submit your details
-    </button>
-    <form id="messageFrom" class="text-2xl font-bold">
-        <div>
-            <input type="text" id="sendField">
-            <button type="submit" onclick="sendMessage()">
-                Send message
-            </button>
-        </div>
-        <div>
-            <p>Recieved Message</p>
-            <input type="text" id="recieveField" style="border:none; width:100vw; " readonly>
-        </div>
-    </form>
+<body>
+    <h1>Welcome to <span>WhisperWire</span></h1>
+    <h2 id="heading">Hello <span id="currentUser"></span></h2>
+    <div class="container">
+        <p class="paras">Enter your userId:
+            <input id="sender" type="text" required>
+        </p>
+        <p class="paras">Enter the recieverId:
+            <input id="receiver" type="text" placeholder="Optional if receiver online">
+        </p>
+        <button onclick="userDetails()" id="getUser">
+            Submit your details
+        </button>
+        <form id="messageFrom" class="text-2xl font-bold">
+            <div id="sendDiv">
+                <input type="text" id="sendField" placeholder="send message">
+                <button type="submit" onclick="sendMessage()" id="sendBtn">
+                    <img src="send.png"  id="send">
+                </button>
+            </div>
+            <div>
+                <p id="rp" class="paras">Recieved Message</p>
+                <input type="text" id="recieveField" readonly>
+            </div>
+            <br>
+            <p id="sp" class="paras">Select online users to chat with from below options:</p>
+            <select id='userOptions'>
+            </select>
+        </form>
+
+    </div>
 </body>
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
     integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"

@@ -1,24 +1,36 @@
-const socket = io("http://localhost:5000");
-
+const socket = io("http://localhost:3000");
 
 socket.on('connect', (res) => {
     console.log('connected to server');
 })
-let sender, receiver;
-
+let sender, receiver, sbtn;
+let isRegistered = false;
+let head = document.getElementById('heading');
+head.style.display = 'none';
 let userDetails = () => {
-    sender = document.getElementById('sender').value;
-    receiver = document.getElementById('reciever').value;
+    sender = document.getElementById('sender');
+    receiver = document.getElementById('receiver');
+    sbtn = document.getElementById('getUser');
+    let currentUser = document.getElementById('currentUser');
     console.log(sender, receiver);
     
-    if(sender && receiver){
+    if(sender && !isRegistered){
         console.log('data sent');
         socket.emit('register', {
-        from: sender
-    })
+            from: sender.value
+        })
+        isRegistered = true;
+        let senderParent = sender.parentElement;
+        let receiverParent = receiver.parentElement;
+        console.log(senderParent);
+        senderParent.style.display = 'none';
+        receiverParent.style.display = 'none';   
+        sbtn.style.display = 'none';
+        currentUser.innerText = sender.value;
+        head.style.display = 'block';
+        form.style.display = 'block';
     }
 }
-
 
 let sendMessage = (event) => {
     event.preventDefault();
@@ -36,6 +48,12 @@ let sendMessage = (event) => {
         toSendText.value = '';
     }
 }
+
+let form = document.getElementById('messageFrom');
+form.addEventListener('submit', sendMessage);
+console.log(form);
+
+form.style.display = 'none';
 socket.on('recieve', (data) => {
     console.log('data recieved', data);
     if(data) {
@@ -47,7 +65,25 @@ socket.on('recieve', (data) => {
     }
 })
 
-document.getElementById('messageFrom').addEventListener('submit', sendMessage);
+socket.on('allUsers', (users) => {
+    let userSelect = document.getElementById('userOptions');
+    userSelect.innerHTML = '';
+    users.forEach((user, index) => {
+        if(users[index] != users[index + 1] && user!=sender.value)
+        {            
+            const option = document.createElement('option');
+            option.value = user;
+            option.textContent = user;
+            userSelect.appendChild(option);
+            option.addEventListener('click', () =>{
+                receiver = user;
+                console.log(receiver);
+            })
+        }
+    })
+    console.log(users);
+})
+
 document.getElementById('getUser').addEventListener('click', userDetails);
 
 

@@ -1,0 +1,99 @@
+body{
+    background-color: rgb(2, 10, 20);
+    height: 100vh;
+    width: 100vw;
+    font-family: sans-serif;
+    color: rgb(184, 200, 247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 span {
+    color: rgb(3, 218, 21);
+}
+
+.paras{
+    font-size: 18px;
+    font-weight: 500;
+}
+input{
+    height: 20px;
+    border-radius: 7px;
+    border:0px solid transparent;
+    padding: 5px;
+    background-color: rgb(34, 56, 85);
+    color: rgb(239, 255, 238);
+    font-size: 18px;
+    font-weight: 550;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10px;
+}
+#sender{
+    margin-left: 33px;
+}
+input:hover{
+    border:1px solid rgb(18, 175, 18);
+}
+#getUser{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: aliceblue;
+    font-family: sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: rgb(21, 148, 17);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#send{
+    height: 20px;
+}
+#sendBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(19, 41, 75);
+    cursor: pointer;
+    margin-left: 10px;
+}
+#sendField{
+    width: 100%;
+}
+#recieveField{
+    width: 100%;
+    height: 30px;
+}
+#sendDiv{
+    display: flex;
+    flex-direction: row;
+}
+#rp{
+    margin-left: 10px;
+    margin-bottom: 4px;
+    margin-top: 30px;
+    font-weight: 500;
+}
+#sp{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+#userOptions{
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(47, 62, 90);
+    color: whitesmoke;
+    font-size: 17px;
+    font-weight: 500;
+}
+
