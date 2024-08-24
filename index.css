@@ -97,3 +97,19 @@ input:hover{
     font-weight: 500;
 }
 
+@media screen and (max-width: 508px) {
+    body{
+        padding:10px;
+    }
+    #sender, #receiver{
+        margin-left: 0px;
+        margin-top: 7px;
+    }
+    #sendField{
+        width: 300px;
+        height: auto;
+    }
+    #recieveField{
+        width: 87%;
+    }
+}
