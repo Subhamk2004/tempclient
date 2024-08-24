@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client1</title>
+</head>
+
+<body style="background-color: rgb(6, 12, 26); color:white">
+    Hello from client
+    <form id="messageFrom" class="text-2xl font-bold">
+        <div>
+            <input type="text" id="sendField">
+            <button type="submit" onclick="sendMessage()">
+                Send message
+            </button>
+        </div>
+        <div>
+            <p>Recieved Message</p>
+            <input type="text" id="recieveField" style="border:none; width:100vw; " readonly>
+        </div>
+
+    </form>
+
+</body>
+<!-- <script type="module">
+    import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
+    const socket = io("http://localhost:6000");
+    socket.on('connect', () => {
+        console.log('Connected to server');
+    });
+
+    socket.on('connect_error', (error) => {
+        console.error('Connection failed:', error);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Disconnected from server');
+    });
+
+</script> -->
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+    integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+    crossorigin="anonymous"></script>
+<script src="./index.mjs">
+
+</script>
+
+</html>
