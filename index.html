@@ -8,9 +8,15 @@
 </head>
 
 <body style="background-color: rgb(16, 26, 6); color:white">
-    <p>Enter your userId: 
-        <input >
+    <p >Enter your userId: 
+        <input id="sender" type="text">
     </p>
+    <p>Enter the recieverId: 
+        <input  id="reciever" type="text" >
+    </p>
+    <button onclick="userDetails" id="getUser">
+        Submit your details
+    </button>
     <form id="messageFrom" class="text-2xl font-bold">
         <div>
             <input type="text" id="sendField">
@@ -18,13 +24,11 @@
                 Send message
             </button>
         </div>
-        <div>
+        <div> 
             <p>Recieved Message</p>
             <input type="text" id="recieveField" style="border:none; width:100vw; " readonly>
         </div>
-
     </form>
-
 </body>
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
     integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"

@@ -1,14 +1,24 @@
 const socket = io("https://test-backend-dmi7.onrender.com");
 
-let senderId = 'user2';
-let receiverId = 'user1';
+
 socket.on('connect', (res) => {
     console.log('connected to server');
 })
+let sender, receiver;
 
-socket.emit('register', {
-    from: senderId
-})
+let userDetails = () => {
+    sender = document.getElementById('sender').value;
+    receiver = document.getElementById('reciever').value;
+    console.log(sender, receiver);
+    
+    if(sender && receiver){
+        console.log('data sent');
+        socket.emit('register', {
+        from: sender
+    })
+    }
+}
+
 
 let sendMessage = (event) => {
     event.preventDefault();
@@ -19,8 +29,8 @@ let sendMessage = (event) => {
     if (textValue) {
         console.log('ready to send text');
         socket.emit("message", {
-            from: senderId,
-            to: receiverId,
+            from: sender,
+            to: receiver,
             text: textValue,
         })
         toSendText.value = '';
@@ -38,6 +48,7 @@ socket.on('recieve', (data) => {
 })
 
 document.getElementById('messageFrom').addEventListener('submit', sendMessage);
+document.getElementById('getUser').addEventListener('click', userDetails);
 
 
 
