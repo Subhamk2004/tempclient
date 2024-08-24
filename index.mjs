@@ -30,7 +30,7 @@ let userDetails = () => {
         head.style.display = 'block';
         form.style.display = 'block';
     }
-}
+} 
 
 let sendMessage = (event) => {
     event.preventDefault();
