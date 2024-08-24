@@ -1,7 +1,7 @@
 const socket = io("https://test-backend-dmi7.onrender.com");
 
-let senderId = 'user1';
-let receiverId = 'user2';
+let senderId = 'user2';
+let receiverId = 'user1';
 socket.on('connect', (res) => {
     console.log('connected to server');
 })
