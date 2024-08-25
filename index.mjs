@@ -41,8 +41,8 @@ let sendMessage = (event) => {
     if (textValue) {
         console.log('ready to send text');
         socket.emit("message", {
-            from: sender,
-            to: receiver,
+            from: sender.value,
+            to: receiver.value,
             text: textValue,
         })
         toSendText.value = '';
@@ -76,7 +76,7 @@ socket.on('allUsers', (users) => {
             option.textContent = user;
             userSelect.appendChild(option);
             option.addEventListener('click', () =>{
-                receiver = user;
+                receiver.value = user;
                 console.log(receiver);
             })
         }
