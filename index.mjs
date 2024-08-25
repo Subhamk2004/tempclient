@@ -1,4 +1,4 @@
-const socket = io("https://test-backend-dmi7.onrender.com");
+const socket = io("http://localhost:3000");
 
 socket.on('connect', (res) => {
     console.log('connected to server');
@@ -57,11 +57,13 @@ form.style.display = 'none';
 socket.on('recieve', (data) => {
     console.log('data recieved', data);
     if(data) {
+        console.log(data);
+        
         console.log(data.text);
         let responseBox = document.getElementById('recieveField');
         console.log(responseBox);
         
-        responseBox.value = data.text;
+        responseBox.value = data;
     }
 })
 
