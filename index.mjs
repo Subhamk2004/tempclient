@@ -1,4 +1,4 @@
-const socket = io("http://localhost:3000");
+const socket = io("https://test-backend-dmi7.onrender.com");
 
 socket.on('connect', (res) => {
     console.log('connected to server');
